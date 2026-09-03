@@ -164,3 +164,56 @@ p {
 .forth-section .images-wrapper img {
   position: absolute;
 }
+
+/* ===== Patch responsive mobile (fork) ===== */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+h1 {
+  font-size: clamp(2.1rem, 9vw, 70px);
+  letter-spacing: -0.03em;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.second-section p,
+.third-section p,
+.forth-section p {
+  font-size: clamp(1rem, 4.5vw, 24px);
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (max-width: 768px) {
+  .first-section {
+    height: auto;
+    min-height: 150svh;
+  }
+
+  .ingredient-images {
+    left: calc(50% - 200px);
+    transform: scale(0.62);
+    transform-origin: top center;
+  }
+
+  .second-section .images-wrapper {
+    top: 34%;
+    padding: 120px 0;
+    transform: scale(0.55);
+  }
+
+  .third-section .images-wrapper {
+    margin-top: 220px;
+  }
+
+  .third-section .images-wrapper img,
+  .forth-section .images-wrapper img {
+    max-width: 86vw;
+  }
+}
