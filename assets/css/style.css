@@ -196,9 +196,23 @@ h1 {
     min-height: 150svh;
   }
 
+  .first-section .images-wrapper {
+    left: 0;
+    right: 0;
+    top: 170px;
+    width: 100%;
+  }
+
+  .section_1_bg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
   .ingredient-images {
+    top: 100px;
     left: calc(50% - 200px);
-    transform: scale(0.62);
+    transform: scale(0.55);
     transform-origin: top center;
   }
 
