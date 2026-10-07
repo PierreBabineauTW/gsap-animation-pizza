@@ -1,107 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
-    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>Pizza</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Ville de Bellevue — Démonstration interactive</title>
+<meta name="description" content="Concept de site municipal interactif — démarches, actualités, projets et vie locale.">
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Libre+Caslon+Display&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0e1512;--paper:#f2efe7;--paper2:#e4dfd4;--lime:#bfd879;--white:#f8f6f0;--muted:#8f948f;--serif:"Libre Caslon Display",Georgia,serif;--sans:"DM Sans",Arial,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--ink)}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);overflow-x:hidden}a{color:inherit;text-decoration:none}button,input{font:inherit}button{color:inherit}.skip{position:fixed;top:-100px;left:16px;z-index:999;background:white;padding:10px 14px}.skip:focus{top:16px}.demo{position:fixed;z-index:99;right:14px;bottom:14px;background:rgba(14,21,18,.82);color:#fff;border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(12px);padding:9px 12px;border-radius:999px;font-size:9px;letter-spacing:.12em;text-transform:uppercase}
+header{position:fixed;z-index:80;top:14px;left:2vw;right:2vw;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;border:1px solid rgba(255,255,255,.18);border-radius:9px;color:#fff;background:rgba(10,15,12,.16);backdrop-filter:blur(18px);transition:.3s}header.solid{background:rgba(242,239,231,.94);color:var(--ink);border-color:rgba(14,21,18,.15)}.brand{display:flex;gap:10px;align-items:center}.mark{width:36px;height:36px;border:1px solid currentColor;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:18px}.brand b{display:block;font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}.brand em{font-family:var(--serif);font-size:22px;font-style:normal;line-height:.9}nav{display:flex;gap:26px;font-size:12px}nav a{opacity:.76}nav a:hover{opacity:1}.actions{display:flex;align-items:center;gap:8px}.round{width:42px;height:42px;border:0;background:transparent;border-radius:50%;cursor:pointer}.contact{background:var(--lime);color:#12200e;border-radius:999px;padding:12px 17px;font-size:11px;font-weight:600}.searchbox{position:fixed;z-index:75;top:92px;left:2vw;right:2vw;background:rgba(242,239,231,.98);border-radius:9px;overflow:hidden;max-height:0;transition:max-height .35s}.searchbox.open{max-height:320px}.searchinner{padding:28px 4vw 34px}.searchinner label{display:block;font-family:var(--serif);font-size:clamp(30px,4vw,58px);margin-bottom:15px}.searchline{display:flex;border-bottom:1px solid var(--ink)}.searchline input{flex:1;border:0;background:transparent;outline:0;padding:15px 0;font-size:17px}.searchline button{border:0;background:transparent;font-size:24px;cursor:pointer}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.chips button{border:1px solid rgba(14,21,18,.2);background:transparent;border-radius:999px;padding:8px 11px;cursor:pointer}
+.hero{position:relative;height:125vh;min-height:900px;color:white;background:#111;overflow:hidden}.hero-media,.base,.shade{position:absolute;inset:0}.base{inset:-5%;background:url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=2400&q=88") center/cover}.shade{background:linear-gradient(90deg,rgba(5,10,7,.86),rgba(5,10,7,.24) 58%,rgba(5,10,7,.42)),linear-gradient(0deg,rgba(5,10,7,.7),transparent 50%)}.float{position:absolute;background:center/cover;border:1px solid rgba(255,255,255,.28);box-shadow:0 20px 60px rgba(0,0,0,.28)}.f1{right:7vw;top:18%;width:23vw;aspect-ratio:4/5;background-image:url("https://images.unsplash.com/photo-1499002238440-d264edd596ec?auto=format&fit=crop&w=1000&q=84")}.f2{left:7vw;bottom:9%;width:19vw;aspect-ratio:4/3;background-image:url("https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1000&q=84")}.f3{right:29vw;bottom:8%;width:14vw;aspect-ratio:1;background-image:url("https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=900&q=84")}.hero-content{position:relative;z-index:3;width:min(1200px,88vw);margin:auto;padding-top:18vh}.eyebrow{font-size:10px;letter-spacing:.22em;text-transform:uppercase;font-weight:600}.hero h1{font-family:var(--serif);font-size:clamp(72px,9vw,145px);font-weight:400;line-height:.82;letter-spacing:-.045em;max-width:900px;margin:18px 0 0}.hero h1 i{font-weight:400}.hero p{max-width:540px;font-size:15px;line-height:1.65;color:rgba(255,255,255,.76);margin:28px 0}.hero-search{display:flex;align-items:center;width:min(660px,100%);height:58px;border-radius:999px;background:rgba(248,246,240,.96);color:var(--ink);padding:0 8px 0 19px}.hero-search input{flex:1;min-width:0;border:0;background:transparent;outline:0}.hero-search button{border:0;background:var(--ink);color:white;height:43px;border-radius:999px;padding:0 18px;cursor:pointer}.quick{width:min(830px,100%);display:grid;grid-template-columns:repeat(4,1fr);margin-top:45px;border-top:1px solid rgba(255,255,255,.25)}.quick a{padding:17px 16px 19px 0;border-right:1px solid rgba(255,255,255,.15)}.quick a:last-child{border:0}.quick small{display:block;font-size:9px;opacity:.55;margin-bottom:15px}.quick strong{font-family:var(--serif);font-weight:400;font-size:20px}.quick span{display:block;font-size:10px;color:rgba(255,255,255,.53);margin-top:5px}.scrollhint{position:absolute;z-index:3;right:3vw;bottom:5%;font-size:9px;letter-spacing:.2em;text-transform:uppercase;writing-mode:vertical-rl;opacity:.75}
+.ticker{height:70px;background:var(--lime);display:flex;align-items:center;overflow:hidden;border-bottom:1px solid rgba(0,0,0,.15)}.ticker b{padding-left:4vw;min-width:max-content;font-size:9px;letter-spacing:.2em;text-transform:uppercase}.track{display:flex;gap:38px;min-width:max-content;margin-left:38px;animation:tick 28s linear infinite}.track span{font-family:var(--serif);font-size:18px}.track span:after{content:"•";margin-left:38px}@keyframes tick{to{transform:translateX(-45%)}}
+.section{padding:120px 4vw;background:var(--paper)}.heading{display:grid;grid-template-columns:1fr 1.6fr auto;align-items:end;gap:30px;margin-bottom:48px}.heading h2,.projects h2,.agenda h2{font-family:var(--serif);font-size:clamp(54px,7vw,104px);font-weight:400;line-height:.9;letter-spacing:-.04em;margin:0}.link{font-size:11px;border-bottom:1px solid;padding-bottom:5px}.rail-wrap{overflow:hidden}.rail{display:flex;gap:14px;width:max-content}.story{width:min(29vw,420px);min-width:300px;border-top:1px solid;padding-top:9px;opacity:.45;transition:.3s}.story.big{width:min(43vw,630px)}.story.active{opacity:1}.story .pic{height:370px;background:center/cover;margin-bottom:15px}.story.big .pic{height:470px}.market{background-image:url("https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=1300&q=84")}.library{background-image:url("https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1300&q=84")}.garden{background-image:url("https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=1300&q=84")}.family{background-image:url("https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=1300&q=84")}.meta{font-size:9px;letter-spacing:.15em;text-transform:uppercase;opacity:.55}.story h3{font-family:var(--serif);font-size:30px;font-weight:400;margin:10px 0 5px}.story p{font-size:11px;color:#666}.rail-controls{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-top:24px}.rail-controls button{width:44px;height:44px;border:1px solid;border-radius:50%;background:transparent;cursor:pointer}.rail-controls .idx{font-size:10px;min-width:30px}
+.territory{position:relative;height:110vh;min-height:760px;background:var(--ink);color:white;overflow:hidden}.terr-frame{position:absolute;left:4vw;right:4vw;top:9vh;bottom:9vh;overflow:hidden}.terr-photo{position:absolute;inset:-6%;background:url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2400&q=88") center/cover;transform:scale(1.08)}.terr-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,13,10,.82),rgba(8,13,10,.12) 70%)}.terr-copy{position:absolute;z-index:3;left:7vw;bottom:12vh;max-width:700px}.terr-copy h2{font-family:var(--serif);font-size:clamp(58px,7vw,112px);font-weight:400;line-height:.88;letter-spacing:-.04em;margin:14px 0 22px}.terr-copy p{max-width:500px;line-height:1.6;color:rgba(255,255,255,.7)}.terr-index{position:absolute;z-index:3;right:4vw;bottom:10vh;display:flex;gap:12px;font-size:10px}
+.projects{background:var(--ink);color:white;padding:125px 4vw}.projects-top{display:grid;grid-template-columns:1.25fr .75fr;gap:8vw;align-items:end;margin-bottom:60px}.projects-top p{color:rgba(255,255,255,.62);line-height:1.6}.project-stage{display:grid;grid-template-columns:260px 1fr;gap:32px;min-height:650px}.project-tabs{display:flex;flex-direction:column}.project-tabs button{text-align:left;border:0;border-top:1px solid rgba(255,255,255,.2);background:transparent;color:rgba(255,255,255,.46);padding:18px 0;cursor:pointer}.project-tabs button.active{color:white;padding-left:18px}.project-tabs small{display:inline-block;width:36px}.visual{position:relative;overflow:hidden;min-height:650px}.projpic{position:absolute;inset:-5%;background:center/cover;opacity:0;transition:opacity .65s}.projpic.active{opacity:1}.p0{background-image:url("https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=1800&q=88")}.p1{background-image:url("https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1800&q=88")}.p2{background-image:url("https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1800&q=88")}.p3{background-image:url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1800&q=88")}.visual:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(7,11,9,.76),transparent 62%)}.projcopy{position:absolute;z-index:2;left:35px;right:35px;bottom:30px;max-width:700px}.projcopy small{font-size:9px;letter-spacing:.18em;text-transform:uppercase}.projcopy h3{font-family:var(--serif);font-size:clamp(42px,5vw,76px);font-weight:400;line-height:.93;margin:10px 0 13px}.projcopy p{color:rgba(255,255,255,.7);max-width:550px}
+.services{background:var(--paper);padding:125px 4vw}.services-head{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:55px}.services-head h2{font-family:var(--serif);font-size:clamp(58px,8vw,120px);font-weight:400;line-height:.86;letter-spacing:-.045em;margin:0;max-width:900px}.services-head p{max-width:360px;line-height:1.6;color:#555}.service-list{border-top:1px solid}.service-list a{display:grid;grid-template-columns:70px 1fr 1fr 50px;gap:15px;align-items:center;min-height:105px;border-bottom:1px solid;padding:10px 0;transition:.25s}.service-list a:hover{padding-left:15px;background:rgba(185,213,121,.18)}.service-list .num{font-size:10px;opacity:.45}.service-list strong{font-family:var(--serif);font-weight:400;font-size:32px}.service-list span{font-size:12px;color:#666}.service-list i{font-style:normal;font-size:26px}
+.agenda{padding:125px 4vw;background:var(--paper2)}.agenda-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:38px}.filters{display:flex;gap:7px;flex-wrap:wrap}.filters button{border:1px solid rgba(14,21,18,.2);background:transparent;border-radius:999px;padding:9px 13px;cursor:pointer}.filters button.active{background:var(--ink);color:white}.events{border-top:1px solid}.event{display:grid;grid-template-columns:120px 180px 1fr 80px;gap:20px;align-items:center;padding:17px 0;border-bottom:1px solid}.event.hide{display:none}.date{font-family:var(--serif);font-size:34px}.event .epic{height:88px;background:center/cover}.event h3{font-family:var(--serif);font-size:26px;font-weight:400;margin:0 0 5px}.event p{font-size:11px;color:#666;margin:0}.event a{justify-self:end;width:44px;height:44px;border:1px solid;border-radius:50%;display:grid;place-items:center}
+.participate{position:relative;min-height:650px;background:#111;color:white;overflow:hidden;display:flex;align-items:center}.partimg{position:absolute;inset:-8%;background:url("https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=2200&q=88") center/cover;transform:scale(1.08)}.partshade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,13,10,.84),rgba(8,13,10,.24))}.partcopy{position:relative;z-index:2;width:min(1200px,88vw);margin:auto}.partcopy h2{font-family:var(--serif);font-size:clamp(58px,7vw,110px);font-weight:400;line-height:.9;letter-spacing:-.04em;max-width:850px;margin:14px 0 20px}.partcopy p{max-width:550px;color:rgba(255,255,255,.7);line-height:1.6}.light{display:inline-block;margin-top:18px;background:white;color:var(--ink);padding:13px 18px;border-radius:999px;font-size:11px}
+footer{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:50px;padding:65px 4vw 85px;background:var(--paper);font-size:11px}footer h3{font-size:10px;text-transform:uppercase;letter-spacing:.14em}footer p{line-height:1.65;color:#666}footer a{display:block;margin:8px 0}
+@media(max-width:850px){header{left:10px;right:10px}nav{display:none}.contact{display:none}.hero{height:1050px}.hero-content{padding-top:140px}.hero h1{font-size:64px}.float{display:none}.quick{grid-template-columns:1fr 1fr}.heading{grid-template-columns:1fr}.story,.story.big{width:78vw}.story .pic,.story.big .pic{height:390px}.territory{min-height:760px}.terr-frame{inset:0}.terr-copy{left:7vw;right:7vw}.projects-top{grid-template-columns:1fr}.project-stage{grid-template-columns:1fr}.project-tabs{flex-direction:row;overflow:auto}.project-tabs button{min-width:170px}.visual{min-height:540px}.services-head{display:block}.services-head p{margin-top:25px}.service-list a{grid-template-columns:45px 1fr 40px}.service-list a span{display:none}.event{grid-template-columns:80px 1fr 50px}.event .epic{display:none}footer{grid-template-columns:1fr 1fr}}@media(max-width:520px){.hero h1{font-size:53px}.hero-search{height:54px}.quick{margin-top:32px}.section,.projects,.services,.agenda{padding:90px 20px}.heading h2,.projects h2,.agenda h2,.services-head h2{font-size:52px}.project-stage{min-height:auto}.visual{min-height:480px}.projcopy{left:22px;right:22px}.event{grid-template-columns:65px 1fr 44px}.event h3{font-size:22px}footer{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}.float{display:none}}
+</style>
 </head>
-
 <body>
-    <section class="first-section">
-        <h1>Discover the Perfect Pizza<br />Fresh, Hot and Irresistible</h1>
-
-        <div class="images-wrapper">
-            <img class="section_1_bg" src="assets/img/section_1_bg.webp" />
-
-            <div class="ingredient-images">
-                <img class="section_1_01" src="assets/img/section_1_01.webp" />
-                <img class="section_1_02" src="assets/img/section_1_02.webp" />
-                <img class="section_1_03" src="assets/img/section_1_03.webp" />
-                <img class="section_1_04" src="assets/img/section_1_04.webp" />
-                <img class="section_1_05" src="assets/img/section_1_05.webp" />
-                <img class="section_1_06" src="assets/img/section_1_06.webp" />
-                <img class="section_1_07" src="assets/img/section_1_07.webp" />
-                <img class="section_1_08" src="assets/img/section_1_08.webp" />
-                <img class="section_1_09" src="assets/img/section_1_09.webp" />
-            </div>
-        </div>
-    </section>
-
-    <section class="second-section">
-        <h1>Every Ingredient Matters</h1>
-        <p>From the crispy crust to the melted cheese — each bite is a delight.</p>
-
-        <div class="images-wrapper bottom">
-            <div class="image-container">
-                <img class="section_2_06" src="assets/img/section_2_06.webp" />
-            </div>
-            <div class="image-container">
-                <img class="section_2_07" src="assets/img/section_2_07.webp" />
-            </div>
-            <div class="image-container">
-                <img class="section_2_08" src="assets/img/section_2_08.webp" />
-            </div>
-            <div class="image-container">
-                <img class="section_2_09" src="assets/img/section_2_09.webp" />
-            </div>
-            <div class="image-container">
-                <img class="section_2_10" src="assets/img/section_2_10.webp" />
-            </div>
-        </div>
-
-        <div class="images-wrapper top">
-            <div class="image-container">
-                <img class="section_2_01" src="assets/img/section_2_01.webp" />
-            </div>
-            <div class="image-container">
-                <img class="section_2_02" src="assets/img/section_2_02.webp" />
-            </div>
-            <div class="image-container">
-                <img class="section_2_03" src="assets/img/section_2_03.webp" />
-            </div>
-            <div class="image-container">
-                <img class="section_2_04" src="assets/img/section_2_04.webp" />
-            </div>
-            <div class="image-container">
-                <img class="section_2_05" src="assets/img/section_2_05.webp" />
-            </div>
-        </div>
-    </section>
-
-    <section class="third-section">
-        <h1>Your Favorite Pizza, Just the Way You Like It</h1>
-        <p>Choose your sauce, pick your toppings, and enjoy a slice of happiness.</p>
-
-        <div class="images-wrapper">
-            <img class="section_3_06" src="assets/img/section_3_06.webp" />
-            <img class="section_3_05" src="assets/img/section_3_05.webp" />
-            <img class="section_3_04" src="assets/img/section_3_04.webp" />
-            <img class="section_3_03" src="assets/img/section_3_03.webp" />
-            <img class="section_3_02" src="assets/img/section_3_02.webp" />
-            <img class="section_3_01" src="assets/img/section_3_01.webp" />
-        </div>
-    </section>
-
-    <section class="forth-section">
-        <h1>Delicious Varieties to Try</h1>
-        <p>Whether you love pepperoni, veggie, or extra cheese — we’ve got your flavor.</p>
-
-        <div class="images-wrapper">
-            <img class="section_4_01" src="assets/img/section_4_01.webp" />
-            <img class="section_4_02" src="assets/img/section_4_02.webp" />
-            <img class="section_4_03" src="assets/img/section_4_03.webp" />
-            <img class="section_4_04" src="assets/img/section_4_04.webp" />
-        </div>
-    </section>
-
-    <script src="assets/js/main.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/ScrollMagic.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/animation.gsap.min.js"></script>
+<a class="skip" href="#main">Aller au contenu</a>
+<div class="demo">Concept de démonstration · site non officiel</div>
+<header>
+<a class="brand" href="#top"><span class="mark">B</span><span><b>Ville de</b><em>Bellevue</em></span></a>
+<nav aria-label="Navigation principale"><a href="#services">Mes démarches</a><a href="#actualites">Actualités</a><a href="#projets">Grands projets</a><a href="#agenda">Agenda</a></nav>
+<div class="actions"><button class="round searchtoggle" aria-label="Rechercher" aria-expanded="false">⌕</button><a class="contact" href="#participer">Nous contacter</a></div>
+</header>
+<div class="searchbox" aria-hidden="true"><form class="searchinner"><label for="search">Que souhaitez-vous faire ?</label><div class="searchline"><input id="search" placeholder="Carte d'identité, cantine, urbanisme…"><button aria-label="Lancer la recherche">→</button></div><div class="chips"><button type="button">Carte d'identité</button><button type="button">Cantine scolaire</button><button type="button">Permis de construire</button><button type="button">Encombrants</button></div></form></div>
+<main id="main">
+<section class="hero" id="top"><div class="hero-media"><div class="base"></div><div class="float f1"></div><div class="float f2"></div><div class="float f3"></div><div class="shade"></div></div><div class="hero-content"><div class="eyebrow">Entre mer et montagne · Bellevue</div><h1>Une ville<br><i>à vivre.</i></h1><p>Un service public simple à utiliser, et un territoire que l'on a envie de découvrir. Retrouvez vos démarches, l'agenda et les projets de la commune sans chercher dans un organigramme.</p><form class="hero-search"><input id="heroquery" aria-label="Rechercher une démarche" placeholder="Que souhaitez-vous faire ?"><button>Rechercher →</button></form><div class="quick"><a href="#services"><small>01</small><strong>État civil</strong><span>Identité, naissance, mariage</span></a><a href="#services"><small>02</small><strong>Enfance</strong><span>Écoles, crèche, cantine</span></a><a href="#services"><small>03</small><strong>Urbanisme</strong><span>Permis et travaux</span></a><a href="#services"><small>04</small><strong>Déchets</strong><span>Collecte, encombrants</span></a></div></div><div class="scrollhint">Faites défiler ↓</div></section>
+<section class="ticker"><b>En ce moment</b><div class="track"><span>Travaux avenue de la Gare</span><span>Marché samedi · 8h–13h</span><span>Conseil municipal · 19h</span><span>Inscriptions scolaires ouvertes</span><span>Travaux avenue de la Gare</span><span>Marché samedi · 8h–13h</span></div></section>
+<section class="section" id="actualites"><div class="heading reveal"><div class="eyebrow">Vie locale</div><h2>Ce qui fait vivre<br>la commune.</h2><a class="link" href="#agenda">Voir tout <span>→</span></a></div><div class="rail-wrap"><div class="rail"><article class="story big active" tabindex="0"><div class="pic market"></div><div class="meta">12 juin · Événement</div><h3>Le marché des artisans revient sur la place</h3><p>Producteurs, ateliers et rencontres au cœur du village.</p></article><article class="story" tabindex="0"><div class="pic library"></div><div class="meta">18 juin · Culture</div><h3>La médiathèque ouvre ses portes</h3><p>Un nouvel espace pour lire, apprendre et se rencontrer.</p></article><article class="story" tabindex="0"><div class="pic garden"></div><div class="meta">21 juin · Nature</div><h3>Une journée pour les jardins partagés</h3><p>Ateliers, plantations et découverte des initiatives locales.</p></article><article class="story" tabindex="0"><div class="pic family"></div><div class="meta">28 juin · Famille</div><h3>Un dimanche sans voitures en centre-ville</h3><p>Jeux, vélo, musique et terrasses dans les rues libérées.</p></article></div></div><div class="rail-controls"><span class="idx">01</span><button class="prev" aria-label="Précédent">←</button><button class="next" aria-label="Suivant">→</button></div></section>
+<section class="territory"><div class="terr-frame"><div class="terr-photo"></div><div class="terr-shade"></div></div><div class="terr-copy"><div class="eyebrow">Notre territoire</div><h2>Un paysage<br>qui s'ouvre.</h2><p>Au fil du scroll, le cadre disparaît pour laisser le territoire prendre toute la place. L'effet est spectaculaire, mais il reste purement éditorial : les démarches essentielles ne dépendent jamais de l'animation.</p></div><div class="terr-index"><span>01</span><span>—</span><span>02</span></div></section>
+<section class="projects" id="projets"><div class="projects-top reveal"><div><div class="eyebrow">Grands projets</div><h2>La ville<br>de demain.</h2></div><p>Des projets concrets, présentés comme un récit plutôt que comme une liste de PDF. Chaque étape reste accessible au clavier et lisible sans animation.</p></div><div class="project-stage"><div class="project-tabs"><button class="active" data-p="0"><small>01</small>Centre-ville</button><button data-p="1"><small>02</small>Mobilités</button><button data-p="2"><small>03</small>Écoles</button><button data-p="3"><small>04</small>Nature</button></div><div class="visual"><div class="projpic p0 active"></div><div class="projpic p1"></div><div class="projpic p2"></div><div class="projpic p3"></div><div class="projcopy"><small>Projet 01 / 04</small><h3>Un cœur de ville plus vert et plus vivant</h3><p>Une place apaisée, davantage d'arbres et de nouveaux espaces pour se rencontrer.</p></div></div></div></section>
+<section class="services" id="services"><div class="services-head reveal"><h2>Mes démarches,<br>sans détour.</h2><p>Pas de portail administratif illisible : une entrée par besoin, un langage clair, et un accès immédiat aux services les plus demandés.</p></div><div class="service-list"><a href="#services"><b class="num">01</b><strong>État civil</strong><span>Carte d'identité, naissance, mariage, décès</span><i>→</i></a><a href="#services"><b class="num">02</b><strong>Enfance & éducation</strong><span>École, cantine, crèche et activités</span><i>→</i></a><a href="#services"><b class="num">03</b><strong>Urbanisme</strong><span>Permis, travaux et cadastre</span><i>→</i></a><a href="#services"><b class="num">04</b><strong>Déchets & propreté</strong><span>Collecte, tri et encombrants</span><i>→</i></a><a href="#services"><b class="num">05</b><strong>Stationnement</strong><span>Abonnements, zones et mobilité</span><i>→</i></a><a href="#services"><b class="num">06</b><strong>Vie associative</strong><span>Salles, subventions et annuaire</span><i>→</i></a></div></section>
+<section class="agenda" id="agenda"><div class="agenda-head reveal"><div><div class="eyebrow">Agenda</div><h2>À Bellevue,<br>cette semaine.</h2></div><div class="filters"><button class="active" data-f="all">Tout</button><button data-f="culture">Culture</button><button data-f="famille">Famille</button><button data-f="citoyen">Vie citoyenne</button></div></div><div class="events"><article class="event" data-c="famille"><div class="date">12<br><small>JUIN</small></div><div class="epic market"></div><div><h3>Marché de printemps</h3><p>Place de la République · 8h–13h</p></div><a href="#agenda" aria-label="Voir le marché">→</a></article><article class="event" data-c="culture"><div class="date">18<br><small>JUIN</small></div><div class="epic library"></div><div><h3>Concert au belvédère</h3><p>Théâtre de verdure · 20h30</p></div><a href="#agenda" aria-label="Voir le concert">→</a></article><article class="event" data-c="citoyen"><div class="date">21<br><small>JUIN</small></div><div class="epic garden"></div><div><h3>Atelier ville fraîche</h3><p>Maison des associations · 18h</p></div><a href="#agenda" aria-label="Voir l'atelier">→</a></article><article class="event" data-c="famille"><div class="date">28<br><small>JUIN</small></div><div class="epic family"></div><div><h3>Dimanche en centre-ville</h3><p>Centre historique · toute la journée</p></div><a href="#agenda" aria-label="Voir l'événement">→</a></article></div></section>
+<section class="participate" id="participer"><div class="partimg"></div><div class="partshade"></div><div class="partcopy reveal"><div class="eyebrow">Participation citoyenne</div><h2>Une ville plus proche<br>et plus à l'écoute.</h2><p>Concertations, conseils de quartier et budget participatif : une interface simple pour comprendre les décisions et contribuer.</p><a class="light" href="#top">Je participe →</a></div></section>
+</main>
+<footer><div><a class="brand" href="#top"><span class="mark">B</span><span><b>Ville de</b><em>Bellevue</em></span></a><p>Concept fictif et non officiel, conçu pour démontrer une nouvelle génération de sites municipaux.</p></div><div><h3>Hôtel de ville</h3><p>1 place de la République<br>00000 Bellevue<br>04 00 00 00 00</p></div><div><h3>Horaires</h3><p>Lun–Ven · 8h30–12h30<br>13h30–17h30<br>Samedi · 9h–12h</p></div><div><h3>Accès rapides</h3><a href="#services">Démarches</a><a href="#agenda">Agenda</a><a href="#projets">Grands projets</a><a href="#top">Haut de page ↑</a></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+var reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+var header=document.querySelector("header"),toggle=document.querySelector(".searchtoggle"),box=document.querySelector(".searchbox"),search=document.querySelector("#search");
+function closeSearch(){box.classList.remove("open");box.setAttribute("aria-hidden","true");toggle.setAttribute("aria-expanded","false")}
+toggle.addEventListener("click",function(){var open=!box.classList.contains("open");box.classList.toggle("open",open);box.setAttribute("aria-hidden",String(!open));toggle.setAttribute("aria-expanded",String(open));if(open)setTimeout(function(){search.focus()},120)});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")closeSearch()});
+document.querySelectorAll(".chips button").forEach(function(b){b.addEventListener("click",function(){search.value=b.textContent;document.querySelector("#services").scrollIntoView({behavior:reduced?"auto":"smooth"});closeSearch()})});
+function go(q){q=(q||"").toLowerCase();var sel=q.indexOf("agenda")>-1||q.indexOf("concert")>-1?"#agenda":q.indexOf("projet")>-1||q.indexOf("travaux")>-1?"#projets":"#services";document.querySelector(sel).scrollIntoView({behavior:reduced?"auto":"smooth"})}
+document.querySelector(".searchinner").addEventListener("submit",function(e){e.preventDefault();go(search.value);closeSearch()});
+document.querySelector(".hero-search").addEventListener("submit",function(e){e.preventDefault();go(document.querySelector("#heroquery").value)});
+var cards=[].slice.call(document.querySelectorAll(".story")),rail=document.querySelector(".rail"),idx=document.querySelector(".idx"),n=0;
+function move(i){n=(i+cards.length)%cards.length;cards.forEach(function(c,j){c.classList.toggle("active",j===n)});idx.textContent=("0"+(n+1)).slice(-2);var x=cards[n].offsetLeft-rail.parentElement.clientWidth*.04;if(window.gsap&&!reduced)gsap.to(rail,{x:-x,duration:.65,ease:"power3.out"});else rail.style.transform="translateX("+(-x)+"px)"}
+document.querySelector(".prev").addEventListener("click",function(){move(n-1)});document.querySelector(".next").addEventListener("click",function(){move(n+1)});
+var pdata=[["Projet 01 / 04","Un cœur de ville plus vert et plus vivant","Une place apaisée, davantage d'arbres et de nouveaux espaces pour se rencontrer."],["Projet 02 / 04","Des mobilités plus simples au quotidien","Des itinéraires cyclables continus, des traversées plus sûres et un centre plus agréable à pied."],["Projet 03 / 04","Une école plus fraîche, plus ouverte","Cours végétalisées, nouveaux espaces pédagogiques et rénovation énergétique du groupe scolaire."],["Projet 04 / 04","Reconnecter la ville à la nature","Renaturation des berges, nouveaux sentiers et îlots de fraîcheur dans les quartiers."]];
+document.querySelectorAll(".project-tabs button").forEach(function(b){b.addEventListener("click",function(){var i=+b.dataset.p;document.querySelectorAll(".project-tabs button").forEach(function(x,j){x.classList.toggle("active",j===i)});document.querySelectorAll(".projpic").forEach(function(x,j){x.classList.toggle("active",j===i)});var c=document.querySelector(".projcopy"),a=c.querySelector("small"),h=c.querySelector("h3"),p=c.querySelector("p");if(window.gsap&&!reduced){gsap.to([a,h,p],{opacity:0,y:10,duration:.16,onComplete:function(){a.textContent=pdata[i][0];h.textContent=pdata[i][1];p.textContent=pdata[i][2];gsap.to([a,h,p],{opacity:1,y:0,duration:.3,stagger:.04})}})}else{a.textContent=pdata[i][0];h.textContent=pdata[i][1];p.textContent=pdata[i][2]}})});
+document.querySelectorAll(".filters button").forEach(function(b){b.addEventListener("click",function(){var f=b.dataset.f;document.querySelectorAll(".filters button").forEach(function(x){x.classList.toggle("active",x===b)});document.querySelectorAll(".event").forEach(function(e){e.classList.toggle("hide",f!=="all"&&e.dataset.c!==f)})})});
+function head(){header.classList.toggle("solid",scrollY>innerHeight*.75)}head();addEventListener("scroll",head,{passive:true});
+if(!window.gsap||!window.ScrollTrigger||reduced)return;gsap.registerPlugin(ScrollTrigger);
+var h=gsap.timeline({scrollTrigger:{trigger:".hero",start:"top top",end:"+=115%",scrub:1,pin:true,anticipatePin:1}});
+h.to(".base",{scale:1,yPercent:-5,ease:"none"},0).to(".f1",{xPercent:-95,yPercent:58,scale:.84,ease:"none"},0).to(".f2",{xPercent:115,yPercent:-90,scale:1.16,ease:"none"},0).to(".f3",{xPercent:-35,yPercent:-75,scale:.76,ease:"none"},0).to(".hero h1",{yPercent:-16,opacity:.75,ease:"none"},0).to(".hero p,.hero-search,.quick",{yPercent:-25,opacity:.3,stagger:.03,ease:"none"},.1);
+document.querySelectorAll(".reveal").forEach(function(el){gsap.from(el,{y:65,opacity:0,duration:.9,ease:"power3.out",scrollTrigger:{trigger:el,start:"top 84%",once:true}})});
+var t=gsap.timeline({scrollTrigger:{trigger:".territory",start:"top top",end:"+=110%",scrub:1,pin:true,anticipatePin:1}});
+t.to(".terr-frame",{left:0,right:0,top:0,bottom:0,ease:"none"},0).to(".terr-photo",{scale:1,xPercent:2,ease:"none"},0).fromTo(".terr-copy",{yPercent:30,opacity:.25},{yPercent:0,opacity:1,ease:"none"},.15);
+gsap.from(".service-list a",{y:70,opacity:0,stagger:.07,duration:.7,ease:"power3.out",scrollTrigger:{trigger:".service-list",start:"top 78%",once:true}});
+gsap.to(".projpic",{yPercent:7,ease:"none",scrollTrigger:{trigger:".project-stage",start:"top bottom",end:"bottom top",scrub:true}});
+gsap.to(".partimg",{yPercent:8,scale:1,ease:"none",scrollTrigger:{trigger:".participate",start:"top bottom",end:"bottom top",scrub:true}});
+})();
+</script>
 </body>
-
 </html>
